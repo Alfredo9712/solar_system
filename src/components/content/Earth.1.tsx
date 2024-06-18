@@ -3,18 +3,11 @@ import * as THREE from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 
-const Earth = () => {
-  // earth
+export const Earth = () => {
+  const cloudRef = useRef<THREE.Mesh>(null!);
   const earthRef = useRef<THREE.Mesh>(null!);
   const earthTilt = new THREE.Euler(0, 0, 0.4091);
   const earthTexture = useLoader(THREE.TextureLoader, "./textures/earth.jpg");
-
-  // earth clouds
-  const cloudRef = useRef<THREE.Mesh>(null!);
-  const cloudTexture = useLoader(
-    THREE.TextureLoader,
-    "./textures/earth-clouds.jpg"
-  );
 
   useFrame((_, delta) => {
     earthRef.current.rotation.y += 0.1 * delta;
@@ -27,12 +20,10 @@ const Earth = () => {
         <icosahedronGeometry args={[1, 12]} />
         <meshStandardMaterial map={earthTexture} />
       </mesh>
-      <mesh scale={1.008} ref={cloudRef}>
+      <mesh scale={1} ref={cloudRef}>
         <icosahedronGeometry args={[1, 12]} />
-        <meshStandardMaterial map={cloudTexture} transparent opacity={0.2} />
+        <meshStandardMaterial map={earthTexture} />
       </mesh>
     </group>
   );
 };
-
-export default Earth;
