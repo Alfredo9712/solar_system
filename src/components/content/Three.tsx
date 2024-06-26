@@ -3,17 +3,35 @@ import { OrbitControls } from "@react-three/drei";
 import Earth from "./Earth";
 import Mars from "./Mars";
 import Sun from "./Sun";
+import Planet from "./Planet";
 
 const Three = () => {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <Canvas camera={{ fov: 75, near: 1, far: 100, position: [15, 2, 3] }}>
+      <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [10, 0, 20] }}>
         <ambientLight intensity={0.3} />
         <Sun />
+        <Planet
+          name="Mercury"
+          texture="./textures/mercury.jpg"
+          position={[-5, 0, 0]}
+          scale={0.383}
+        />
+        <Planet
+          name="Venus"
+          texture="./textures/venus.jpg"
+          position={[0, 0, 0]}
+          scale={0.949}
+        />
         <Earth />
-        <Mars />
+        <Planet
+          name="Mars"
+          texture="./textures/mars.jpg"
+          position={[10, 0, 0]}
+          scale={0.532}
+        />
+        {/* <Mars /> */}
         <OrbitControls enableDamping enableZoom={true} />
-        <axesHelper />
       </Canvas>
     </div>
   );

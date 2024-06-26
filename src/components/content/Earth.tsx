@@ -25,9 +25,9 @@ const Earth = () => {
   return (
     <group
       rotation={earthTilt}
-      position={[0, 0, 0]}
+      position={[5, 0, 0]}
       onClick={() => console.log("earth")}
-      onPointerOver={() => groupRef.current.scale.set(1.2, 1.2, 1.2)}
+      onPointerOver={() => groupRef.current.scale.set(1.1, 1.1, 1.1)}
       onPointerLeave={() => groupRef.current.scale.set(1, 1, 1)}
       ref={groupRef}
     >

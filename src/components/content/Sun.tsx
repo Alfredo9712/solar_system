@@ -13,19 +13,15 @@ const Sun = () => {
   });
 
   return (
-    <mesh ref={sunRef} position={[-20, 0, 0]} scale={10}>
-      <icosahedronGeometry args={[1, 12]} />
+    <mesh ref={sunRef} position={[-120, 0, 0]} scale={109.3}>
+      <icosahedronGeometry args={[1, 30]} />
       <meshStandardMaterial
         map={sunTexture}
         color={"white"}
         emissive={"yellow"}
-        emissiveIntensity={0.6}
+        emissiveIntensity={0.2}
       />
-      <pointLight
-        intensity={800}
-        distance={900}
-        // decay={2} // Adjust decay for more natural light falloff
-      />
+      <pointLight intensity={50000} distance={50000} />
     </mesh>
   );
 };

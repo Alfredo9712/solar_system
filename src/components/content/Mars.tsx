@@ -14,7 +14,7 @@ const Mars = () => {
   });
 
   return (
-    <mesh scale={1} ref={marsRef} position={[10, 0, 0]}>
+    <mesh scale={0.532} ref={marsRef} position={[5, 0, 0]}>
       <icosahedronGeometry args={[1, 12]} />
       <meshStandardMaterial map={earthTexture} />
     </mesh>
