@@ -8,9 +8,7 @@ import Saturn from "./Saturn";
 const Three = () => {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <Canvas
-        camera={{ fov: 75, near: 0.1, far: 800, position: [-11, 2.5, 20] }}
-      >
+      <Canvas camera={{ fov: 75, near: 0.1, far: 800, position: [0, 3, 20] }}>
         <ambientLight intensity={0.3} />
         <Sun />
         <Planet
@@ -39,7 +37,7 @@ const Three = () => {
           scale={11.21}
         />
         <Saturn />
-        <OrbitControls enableDamping enableZoom={true} />
+        <OrbitControls enableDamping enableZoom={true} enableRotate={false} />
       </Canvas>
     </div>
   );
