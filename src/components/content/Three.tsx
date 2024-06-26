@@ -1,14 +1,15 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Earth from "./Earth";
-import Mars from "./Mars";
 import Sun from "./Sun";
 import Planet from "./Planet";
 
 const Three = () => {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [10, 0, 20] }}>
+      <Canvas
+        camera={{ fov: 75, near: 0.1, far: 100, position: [-11, 2.5, 20] }}
+      >
         <ambientLight intensity={0.3} />
         <Sun />
         <Planet
@@ -30,7 +31,12 @@ const Three = () => {
           position={[10, 0, 0]}
           scale={0.532}
         />
-        {/* <Mars /> */}
+        <Planet
+          name="Jupiter"
+          texture="./textures/jupiter.jpg"
+          position={[25, 0, 0]}
+          scale={11.21}
+        />
         <OrbitControls enableDamping enableZoom={true} />
       </Canvas>
     </div>
